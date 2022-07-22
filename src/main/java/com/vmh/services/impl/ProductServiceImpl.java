@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
         try {
             Map r = this.cloudinary.uploader().upload(product.getImg().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
-            String img = (String) r.get("secure_url");
+            product.setImage((String) r.get("secure_url"));
             
             return this.productRepository.addOrUpdate(product);
             
