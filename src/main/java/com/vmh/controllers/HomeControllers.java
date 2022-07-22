@@ -5,12 +5,10 @@
 package com.vmh.controllers;
 
 
-import com.vmh.pojos.Category;
 import com.vmh.pojos.User;
 import com.vmh.services.CategoryService;
 import com.vmh.services.ProductService;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,9 +39,8 @@ public class HomeControllers {
     }
     
     @RequestMapping(value = "/")
-    public String index(Model model, @RequestParam(value = "kw", 
-            required = false, defaultValue = "") String kw){     
-        model.addAttribute("products", this.productService.getProducts(kw));
+    public String index(Model model, @RequestParam Map<String, String> params){     
+        model.addAttribute("products", this.productService.getProducts(params,0));
         return "index";
     }
     
@@ -64,5 +61,6 @@ public class HomeControllers {
         model.addAttribute("product", this.productService.getProductDetail(id));
         return "detail";
     }
+    
     
 }

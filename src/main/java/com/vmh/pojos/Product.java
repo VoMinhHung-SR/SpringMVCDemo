@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -31,6 +33,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Size(min = 5, max = 100, message="{product.name.lenErr}")
     private String name;
     private String description;
     private BigDecimal price;
@@ -43,6 +46,7 @@ public class Product {
     @Transient
     private MultipartFile img;
     
+    @NotNull(message="{product.name.cateErr}")
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
@@ -183,6 +187,20 @@ public class Product {
      */
     public void setOrdersDetail(Set<OrderDetail> ordersDetail) {
         this.ordersDetail = ordersDetail;
+    }
+
+    /**
+     * @return the img
+     */
+    public MultipartFile getImg() {
+        return img;
+    }
+
+    /**
+     * @param img the img to set
+     */
+    public void setImg(MultipartFile img) {
+        this.img = img;
     }
     
     

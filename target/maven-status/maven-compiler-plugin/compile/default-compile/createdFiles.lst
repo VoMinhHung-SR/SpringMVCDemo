@@ -1,5 +1,6 @@
 com\vmh\pojos\OrderDetail_.class
 com\vmh\configs\HibernateConfig.class
+com\vmh\formatters\CategoryFormatter.class
 com\vmh\services\impl\ProductServiceImpl.class
 com\vmh\configs\DispatcherSerletInitializer.class
 com\vmh\repositories\impl\CategoryRepositoryImpl.class

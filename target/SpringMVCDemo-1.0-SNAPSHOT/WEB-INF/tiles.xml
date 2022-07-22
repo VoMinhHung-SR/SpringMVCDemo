@@ -27,6 +27,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this 
         <put-attribute name="title" value="Chi tiet san pham" />
         <put-attribute name="content" value="/WEB-INF/jsp/details.jsp" />
     </definition>
+    <definition name="products" extends="baseLayout">
+        <put-attribute name="title" value="Quan li san pham" />
+        <put-attribute name="content" value="/WEB-INF/jsp/products.jsp" />
+    </definition>
 </tiles-definitions>
     
 

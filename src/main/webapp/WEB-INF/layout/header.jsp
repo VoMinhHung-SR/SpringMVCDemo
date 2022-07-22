@@ -4,49 +4,45 @@
     Author     : ASUS
 --%>
 
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">SaleApp</a>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="<c:url value="/" />">Home</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <c:forEach var="i" items="${categories}">
-            <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white">${i.name}</a> 
-            </li>
-        </c:forEach>
-        <li class="nav-item">
-          <a class="nav-link disabled"
-            >Disabled</a
-          >
-        </li>
-      </ul>
-      <form class="d-flex input-group w-auto">
-        <input
-          name="kw"
-          type="search"
-          class="form-control"
-          placeholder="Type query"
-          aria-label="Search"
-        />
-        <input type="submit" value="Search" class="btn btn-danger">
-      </form>
-    </div>
-  </div>
-</nav>
 
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/" />">Trang chu</a>
+            </li>
+            <c:forEach items="${categories}" var="c">
+                <li class="nav-item">
+                    <c:url value="/" var="cateUrl" >
+                        <c:param name="cateId" value="${c.id}" />
+                    </c:url>
+                    <a class="nav-link" href="${cateUrl}">${c.name}</a>
+                </li>
+            </c:forEach>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/register" />">Dang ky</a>
+            </li>
+        </ul>
+    </div>
+    <form class="d-flex input-group w-auto">
+        <input
+            name="kw"
+            type="search"
+            class="form-control"
+            placeholder="Type query"
+            aria-label="Search"
+            />
+        <input type="submit" value="Search" class="btn btn-danger">
+    </form>
+</nav>
 

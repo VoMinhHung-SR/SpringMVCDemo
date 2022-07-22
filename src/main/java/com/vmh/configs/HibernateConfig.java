@@ -22,7 +22,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
  * @author ASUS
  */
 @Configuration
-@PropertySource("classpath:databases.properties")
+@PropertySource( {"classpath:databases.properties",
+                "classpath:messages.properties"})
 public class HibernateConfig {
 
     @Autowired
