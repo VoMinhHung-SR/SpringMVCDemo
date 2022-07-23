@@ -29,9 +29,23 @@
                     <a class="nav-link" href="${cateUrl}">${c.name}</a>
                 </li>
             </c:forEach>
-            <li class="nav-item">
-                <a class="nav-link" href="<c:url value="/register" />">Dang ky</a>
-            </li>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <li class="nav-item">
+                    <a class="nav-link  text-danger" href="<c:url value="/login" />">Dang nhap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/register" />">Dang ky</a>
+                </li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="<c:url value="/" />">${pageContext.request.userPrincipal.name}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="<c:url value="/register" />">Dang xuat</a>
+                </li>
+            </c:if>
+
         </ul>
     </div>
     <form class="d-flex input-group w-auto">

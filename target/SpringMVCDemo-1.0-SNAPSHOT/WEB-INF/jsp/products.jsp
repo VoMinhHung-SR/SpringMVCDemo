@@ -13,30 +13,30 @@
 </c:if>
 <c:url value="/admin/products" var="action"/>
 <form:form class="container" action="${action}" method="post" modelAttribute="product" 
-      enctype="multipart/form-data">
-    
+           enctype="multipart/form-data">
+
     <form:errors path="*" element="div" cssClass="alert alert-danger"/>
-    
+
     <div class="form-group">
         <label for="name">Ten san pham</label>
         <form:input type="text" class="form-control" id="name" path="name" placeholder="ten san pham"/>
     </div>
-    
+
     <div class="form-group">
         <label for="description">Mo ta</label>
         <form:textarea id="description" class="form-control" path="description"/>
     </div>
-    
+
     <div class="form-group">
         <label for="price">Gia san pham</label>
         <form:input type="text" class="form-control" id="price" path="price" placeholder="gia san pham"/>
     </div>
-    
+
     <div class="form-group">
         <label for="file">Chon anh san pham</label>
         <form:input type="file" class="form-control" id="file" path="img"/>
     </div>
-    
+
     <div class="form-group">
         <label for="cate">Danh muc</label>
         <form:select id="cate" path="category" class="form-control">
@@ -45,6 +45,6 @@
             </c:forEach>
         </form:select>
     </div>
-    
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form:form>
