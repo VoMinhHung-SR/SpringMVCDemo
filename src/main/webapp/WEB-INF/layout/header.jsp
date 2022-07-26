@@ -42,7 +42,7 @@
                     <a class="nav-link text-success" href="<c:url value="/" />">${pageContext.request.userPrincipal.name}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="<c:url value="/register" />">Dang xuat</a>
+                    <a class="nav-link text-danger" href="<c:url value="/logout" />">Dang xuat</a>
                 </li>
             </c:if>
 
